@@ -51,7 +51,7 @@ export const ChatWindow = () => {
             <SendIcon style={{ color: "#919191" }} />
           </div>
           <div className="chatWindow--btn">
-            <AttachFileIcon style={{ color: "#919191" }} />
+            <MicIcon style={{ color: "#919191" }} />
           </div>
         </div>
       </div>
