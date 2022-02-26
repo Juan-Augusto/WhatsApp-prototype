@@ -48,6 +48,8 @@ function App() {
             chatList.map((item, key) => (
               <ChatListStandard
                 key={key}
+                data={item}
+                active={activeChat.chatId === chatList[key].chatId}
                 onClick={()=>setActiveChat(chatList[key])}
               />
             ))
@@ -58,12 +60,13 @@ function App() {
         {
           activeChat.chatId !== undefined &&
           <ChatWindow/>
-        }
-        {          
-        
+        }       
+        {
           activeChat.chatId === undefined &&
           <ChatIntro/>
+
         }
+        
       </div>
     </div>
   );
