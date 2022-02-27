@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-import { ChatIntro } from './Components/ChatIntro';
+import { ChatIntro } from './Components/ChatIntro/ChatIntro';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
-import { ChatWindow } from './Components/ChatWindow';
-import { ChatListStandard } from './Components/ChatListItem';
+import { ChatWindow } from './Components/ChatWindow/ChatWindow';
+import { ChatListStandard } from './Components/ChatListItem/ChatListItem';
 
 
 function App() {
