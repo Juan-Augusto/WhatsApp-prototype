@@ -21,7 +21,7 @@ export const ChatWindow = ({user}) => {
   }
 
   const [emojiOpen, setEmojiOpen]= useState(false);
-  const [text, setText] = useState();
+  const [text, setText] = useState('');
   const [listening, setListening] = useState(false);
   const [list, setList] = useState([
     {author: 123, body: 'bla bla bla'}, 
@@ -64,7 +64,7 @@ export const ChatWindow = ({user}) => {
     setEmojiOpen(false);
   }
   const handleSendClick = () => {
-
+    console.log(text)
   }
   const handleMicClick = () => {
     if(recognition !== null){
@@ -160,7 +160,7 @@ export const ChatWindow = ({user}) => {
           {
             text !== '' &&
             <div onClick={handleSendClick} className="chatWindow--btn">
-              <SendIcon style={{ color: "#919191" }} />
+              <SendIcon onClick={handleSendClick} style={{ color: "#919191" }} />
             </div>
           }
         </div>
