@@ -12,6 +12,7 @@ import MicIcon from "@material-ui/icons/Mic";
 import { useState, useEffect, useRef } from "react";
 
 export const ChatWindow = ({user}) => {
+  console.log(user)
   const body = useRef();
   let recognition = null;
   let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
