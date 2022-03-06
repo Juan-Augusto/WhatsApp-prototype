@@ -1,2 +1,2 @@
 # WhatsApp-prototype
-Study project
+A Whatsapp clone made for study purposes using ReactJS and Firebase.
