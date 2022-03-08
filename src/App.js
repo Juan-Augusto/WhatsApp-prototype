@@ -31,6 +31,17 @@ function App() {
   const handleNewChat = () => {
     setShowNewChat(true);
   }
+  // const handleLoginData = async (u) =>{
+  //   let newUser = {
+  //     id: u.uid,
+  //     name: u.displayName,
+  //     avatar: u.photoURL
+  //   }
+  //   setUser(newUser);
+  // }
+  // if(user === null){
+  //   return (<Login />);
+  // }
   return (
     <div className="app-window">
       <div className="sidebar">
