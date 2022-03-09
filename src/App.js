@@ -10,16 +10,11 @@ import { ChatWindow } from './Components/ChatWindow/ChatWindow';
 import { ChatListStandard } from './Components/ChatListItem/ChatListItem';
 import { NewChat } from './Components/NewChat/NewChat';
 import { Login } from './Components/Login/Login';
+import Api from './Api';
 
 
 function App() {
-  const[chatList, setChatList]=useState([
-    {chatId: 1, title: 'O Brabo tem nome', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 2, title: 'O Brabo tem nome', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 3, title: 'O Brabo tem nome', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 4, title: 'O Brabo tem nome', image: 'https://www.w3schools.com/howto/img_avatar2.png'}
-
-  ]);
+  const[chatList, setChatList]=useState([]);
   const[activeChat, setActiveChat]= useState({});
   const [user, setUser] = useState(null)
   const [showNewChat, setShowNewChat]=useState(false)
@@ -31,7 +26,8 @@ function App() {
       id: u.uid,
       name: u.displayName,
       avatar: u.photoURL
-    }
+    };
+    await Api.addUser(newUser);
     setUser(newUser);
   }
   if(user === null){

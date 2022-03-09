@@ -1,17 +1,25 @@
 import './NewChat.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-export const NewChat  = ({user, chtaList, show, setShow}) => {
+import Api from '../../Api';
+
+export const NewChat  = ({user, chatList, show, setShow}) => {
+    const [list, setList] = useState([]);
+    
+    useEffect(()=> {
+        const getList = async () => {
+            if(user !== null){
+                let results = await Api.getContactList(user.id);
+                setList(results);
+            }
+        }
+        getList();
+    }, [user]);
+
     const handleClose = () => {
         setShow(false);
     }
-    const[list, setList] = useState([
-        {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Teste'},
-        {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Teste'},
-        {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Teste'},
-        {id: 123, avatar: 'https://www.w3schools.com/howto/img_avatar2.png', name: 'Teste'}
-    ]);
     return(
         <div className='newChat' style={{left: show ? 0 : '-415px'}}>
             <div className='newChat--head'>
