@@ -16,11 +16,17 @@ import Api from './Api';
 function App() {
   const[chatList, setChatList]=useState([]);
   const[activeChat, setActiveChat]= useState({});
-  const [user, setUser] = useState(null)
-  const [showNewChat, setShowNewChat]=useState(false)
+  const [user, setUser] = useState(null);
+  const [showNewChat, setShowNewChat]=useState(false);
   const handleNewChat = () => {
     setShowNewChat(true);
   }
+  useEffect(() =>{
+    if(user !== null){
+      let unsub = Api.onChatList(user.id, setChatList)
+      return unsub;
+    }
+  },[user])
   const handleLoginData = async (u) =>{
     let newUser = {
       id: u.uid,

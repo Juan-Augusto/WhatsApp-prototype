@@ -24,32 +24,7 @@ export const ChatWindow = ({user}) => {
   const [emojiOpen, setEmojiOpen]= useState(false);
   const [text, setText] = useState('');
   const [listening, setListening] = useState(false);
-  const [list, setList] = useState([
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'},
-    {author: 123, body: 'bla bla bla'}, 
-    {author: 123, body: 'bla bla'}, 
-    {author: 1234, body: 'bla bla bla bla'}
-  ]);
+  const [list, setList] = useState([]);
   useEffect(() => {
     if(body.current.scrollHeight > body.current.offsetHeight){
       body.current.scrollTop = body.current.scrollHeight - body.current.offsetHeight;

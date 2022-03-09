@@ -1,6 +1,18 @@
+import { useState, useEffect } from 'react';
 import "./ChatListItemStyle.css"
 
 export const ChatListStandard = ({onClick, active, data}) => {
+    const [time, setTime] = useState('')
+    useEffect(() =>{
+        if(data.lastMessageDate > 0){
+            let d = new Date(data.lastMessageDate.seconds * 1000);
+            let hours = d.getHours();
+            let minutes = d.getMinutes();
+            hours = hours < 10 ? '0' +hours : hours;
+            minutes = minutes < 10 ? '0' +minutes : minutes;
+            setTime(`${hours} : ${minutes}`);
+        }
+    }, [data])
     return(
         <div 
             className={`chatListItem ${active?'active':''}`}
@@ -10,12 +22,12 @@ export const ChatListStandard = ({onClick, active, data}) => {
             <div className="chatListItem--lines">
                 <div className="chatListItem--line">
                     <div className="chatListItem--name">{data.title}</div>
-                    <div className="chatListItem--date">19:00</div>
+                    <div className="chatListItem--date">{time}</div>
                 </div>
                 <div className="chatListItem--line">
                     <div className="chatListItem--lastMsg">
                         <p>
-                            Lorem ipsu dolor sit, amet consectetur adipisicing elit. Quisquam alias quidem praesentium reprehenderit nostrum reiciendis rerum voluptatem, quod eos officia sed nam. Alias quo iure ducimus tenetur, natus harum reiciendis quas eaque, ex blanditiis veritatis non exercitationem eveniet aut autem a nostrum ab rem. Eum quas accusamus cumque placeat unde!
+                            {data.lastMessage}
                         </p>
                     </div>
                 </div>
