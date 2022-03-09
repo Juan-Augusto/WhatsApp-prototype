@@ -9,6 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { ChatWindow } from './Components/ChatWindow/ChatWindow';
 import { ChatListStandard } from './Components/ChatListItem/ChatListItem';
 import { NewChat } from './Components/NewChat/NewChat';
+import { Login } from './Components/Login/Login';
 
 
 function App() {
@@ -20,28 +21,22 @@ function App() {
 
   ]);
   const[activeChat, setActiveChat]= useState({});
-  const [user, setUser] = useState(
-      {
-        id: 1234,
-        avatar: 'https://www.w3schools.com/howto/img_avatar2.png',
-        name: 'Juan Augusto'
-      }
-      )
+  const [user, setUser] = useState(null)
   const [showNewChat, setShowNewChat]=useState(false)
   const handleNewChat = () => {
     setShowNewChat(true);
   }
-  // const handleLoginData = async (u) =>{
-  //   let newUser = {
-  //     id: u.uid,
-  //     name: u.displayName,
-  //     avatar: u.photoURL
-  //   }
-  //   setUser(newUser);
-  // }
-  // if(user === null){
-  //   return (<Login />);
-  // }
+  const handleLoginData = async (u) =>{
+    let newUser = {
+      id: u.uid,
+      name: u.displayName,
+      avatar: u.photoURL
+    }
+    setUser(newUser);
+  }
+  if(user === null){
+    return (<Login onReceive={handleLoginData} />);
+  }
   return (
     <div className="app-window">
       <div className="sidebar">
